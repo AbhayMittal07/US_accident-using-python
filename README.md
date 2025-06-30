@@ -1,40 +1,100 @@
-# U.S. Accident Data Analysis
+📊 US Traffic Accidents Data Analysis (2016–2019)
+This project analyzes a large-scale dataset of traffic accidents in the United States from 2016 to 2019. It explores patterns in accidents over time, geography, and weather conditions using powerful data visualization and analysis libraries like Pandas, Seaborn, and Folium.
 
-This project presents an end-to-end analysis of U.S. road accident data using Python. It includes loading a large dataset, performing data cleaning, exploratory data analysis (EDA), and generating insightful visualizations to understand accident trends and severity.
+📁 Dataset Overview
+Total records: 7,728,394
 
-## 📝 Project Summary
+Total columns: 46
 
-The notebook analyzes a U.S. accident dataset obtained from a public source. The main objectives of this analysis are:
+Source: US accidents dataset (real-world transportation data)
 
-- To explore the distribution and severity of accidents across different U.S. states.
-- To identify temporal patterns (by hour, day, month) in accident occurrences.
-- To evaluate how weather, visibility, and other environmental factors affect accident severity.
-- To create interactive visualizations (e.g., heat maps, bar charts) that clearly communicate insights.
+Key fields include:
 
-## 📊 Key Tasks Performed
+Severity, Start_Time, End_Time
 
-- **Data Loading and Inspection**: Loaded a large CSV dataset, inspected for nulls, shape, and types.
-- **Data Cleaning**: Handled missing values and reduced the dataset for efficient processing.
-- **Exploratory Data Analysis (EDA)**:
-  - Analyzed accident severity distribution
-  - Examined top states with the most accidents
-  - Studied time-based trends (hourly, daily, monthly)
-- **Geographical Visualization**:
-  - Created a choropleth heat map to visualize accident count per state.
-- **Weather Analysis**:
-  - Compared accident severity with visibility and weather condition data.
+Start_Lat, Start_Lng, End_Lat, End_Lng
 
-## 🛠 Technologies & Libraries Used
+City, State, Weather_Condition, Temperature(F)
 
-- Python 3.x
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Plotly Express
-- Jupyter Notebook
+Boolean flags like Junction, Traffic_Signal, Amenity
 
-## 🚀 Getting Started
+📌 Key Steps & Insights
+🧼 Data Cleaning
+Converted Start_Time to datetime.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/us-accident-analysis.git
-   cd us-accident-analysis
+Calculated missing values:
+
+Highest missing: End_Lat and End_Lng (~44%)
+
+Weather-related fields like Precipitation(in) and Wind_Chill(F) also had significant missingness.
+
+Total unique accident cases (ID): 7,728,394
+
+🌆 City-Level Accident Analysis
+Total unique cities: 13,679
+
+Top 5 cities by number of accidents:
+
+Miami – 186,917
+
+Houston – 169,609
+
+Los Angeles – 156,491
+
+Charlotte – 138,652
+
+Dallas – 130,939
+
+About 8.9% of cities account for 1,000+ accidents.
+
+Over 1,000 cities reported only 1 accident.
+
+⏰ Time-Based Analysis
+Accidents peak between 7–9 AM and 4–6 PM (commute hours).
+
+Sunday vs Tuesday hourly comparisons showed varied trends.
+
+Accident frequency by month shows higher density in winter months.
+
+Year-wise filtering (e.g., for 2019) helps identify seasonal trends.
+
+🗺️ Geo-Spatial Visualizations
+Latitude and longitude data used to create scatter plots.
+
+Sampled 1% of data to reduce visualization load.
+
+Created a heatmap using Folium to visualize accident density across the US.
+
+📉 Visualizations & Tools Used
+pandas, matplotlib, seaborn for EDA and plotting
+
+folium for map-based heatmaps
+
+Visualizations include:
+
+Histograms (hour, day of week, month)
+
+Pie charts (source distribution)
+
+Bar plots (top cities)
+
+Heatmaps (geospatial accident density)
+
+💡 Notable Observations
+Significant missing values in location endpoints and weather fields.
+
+Miami has the highest number of accidents.
+
+Morning and evening rush hours are the most accident-prone.
+
+Winter months show slightly higher accident rates.
+
+🛠️ Future Work
+Analyze the relationship between weather conditions and accident severity.
+
+Apply clustering or machine learning models for severity prediction.
+
+Create interactive dashboards using tools like Plotly Dash or Streamlit.
+
+📍 Sample Heatmap
+Accident density visualized using Folium's HeatMap plugin on a 1% sample of the data.
